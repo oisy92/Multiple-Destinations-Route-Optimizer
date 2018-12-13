@@ -1,0 +1,382 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Route Optimizer</title>
+<link href="{{ url_for('static', filename='Style.css')}}" rel="stylesheet" type="text/css">
+
+	
+	
+<style type="text/css">
+@import url("../static/Style.css");
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src={{ url_for('static', filename='jquery-3.3.1.js')}}></script>
+<script type="text/javascript" src={{ url_for('static', filename='maps.js')}}></script>
+	
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+	
+
+<body>
+
+	
+
+</div>
+<div id="map"></div>
+<div id="shadow"></div>
+<div id="waitshadow">
+	</div>
+	
+<div id="logobanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<img  id= "home" src="{{ url_for('static', filename='Asset 5.png')}}" width="3.5%">
+	<img  id= "message" src="{{ url_for('static', filename='Asset 6.png')}}" width="3.5%">
+	<img  id= "dollar" src="{{ url_for('static', filename='Asset 8.png')}}" width="3%">
+
+		</li></div>
+	
+<div id="textbanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<a href="/path">Home</a>
+	<a href = "/contact">Contact</a>
+	<a href = "http://oyahya.com/">Portfolio</a>
+		</li></div>
+
+<!-- Replace the value of the key parameter with your own API key. -->
+
+<div id="waitmesssage">
+<p>Your request is being processed.<br/><br/> Please wait...</p>
+</div>
+<input id="depart" class="controls" keypress="placeMarkers(i, identifier)" type="text" placeholder="Search Departure">
+<div id="inputs">
+  
+  <button type="button" id="button" onclick="increaseTable()" value="Add More">Add Stop</button>
+<button id="buttonsubmit" onClick="showwaitpage()">Optimize</button>
+<input id="dest" class="controls" keypress="placeMarkers(i, identifier)" type="text" placeholder="Search Destination">
+<input id="pac-input" keypress="placeMarkers(i, identifier)" type="text" placeholder="Search Stop Address">
+<select name="Departure Time" id = "timebutton">
+<option value="now">Depart Time</option>
+<option value="now">Now</option>
+<option value="00:00">00:00</option>
+<option value="00:15">00:15</option>
+<option value="00:30">00:30</option>
+<option value="00:45">00:45</option>
+<option value="01:00">01:00</option>
+<option value="01:15">01:15</option>
+<option value="01:30">01:30</option>
+<option value="01:45">01:45</option>
+<option value="02:00">02:00</option>
+<option value="02:15">02:15</option>
+<option value="02:30">02:30</option>
+<option value="02:45">02:45</option>
+<option value="03:00">03:00</option>
+<option value="03:15">03:15</option>
+<option value="03:30">03:30</option>
+<option value="03:45">03:45</option>
+<option value="04:00">04:00</option>
+<option value="04:15">04:15</option>
+<option value="04:30">04:30</option>
+<option value="04:45">04:45</option>
+<option value="05:00">05:00</option>
+<option value="05:15">05:15</option>
+<option value="05:30">05:30</option>
+<option value="05:45">05:45</option>
+<option value="06:00">06:00</option>
+<option value="06:15">06:15</option>
+<option value="06:30">06:30</option>
+<option value="06:45">06:45</option>
+<option value="07:00">07:00</option>
+<option value="07:15">07:15</option>
+<option value="07:30">07:30</option>
+<option value="07:45">07:45</option>
+<option value="08:00">08:00</option>
+<option value="08:15">08:15</option>
+<option value="08:30">08:30</option>
+<option value="08:45">08:45</option>
+<option value="09:00">09:00</option>
+<option value="09:15">09:15</option>
+<option value="09:30">09:30</option>
+<option value="09:45">09:45</option>
+<option value="10:00">10:00</option>
+<option value="10:15">10:15</option>
+<option value="10:30">10:30</option>
+<option value="10:45">10:45</option>
+<option value="11:00">11:00</option>
+<option value="11:15">11:15</option>
+<option value="11:30">11:30</option>
+<option value="11:45">11:45</option>
+<option value="12:00">12:00</option>
+<option value="12:15">12:15</option>
+<option value="12:30">12:30</option>
+<option value="12:45">12:45</option>
+<option value="13:00">13:00</option>
+<option value="13:15">13:15</option>
+<option value="13:30">13:30</option>
+<option value="13:45">13:45</option>
+<option value="14:00">14:00</option>
+<option value="14:15">14:15</option>
+<option value="14:30">14:30</option>
+<option value="14:45">14:45</option>
+<option value="15:00">15:00</option>
+<option value="15:15">15:15</option>
+<option value="15:30">15:30</option>
+<option value="15:45">15:45</option>
+<option value="16:00">16:00</option>
+<option value="16:15">16:15</option>
+<option value="16:30">16:30</option>
+<option value="16:45">16:45</option>
+<option value="17:00">17:00</option>
+<option value="17:15">17:15</option>
+<option value="17:30">17:30</option>
+<option value="17:45">17:45</option>
+<option value="18:00">18:00</option>
+<option value="18:15">18:15</option>
+<option value="18:30">18:30</option>
+<option value="18:45">18:45</option>
+<option value="19:00">19:00</option>
+<option value="19:15">19:15</option>
+<option value="19:30">19:30</option>
+<option value="19:45">19:45</option>
+<option value="20:00">20:00</option>
+<option value="20:15">20:15</option>
+<option value="20:30">20:30</option>
+<option value="20:45">20:45</option>
+<option value="21:00">21:00</option>
+<option value="21:15">21:15</option>
+<option value="21:30">21:30</option>
+<option value="21:45">21:45</option>
+<option value="22:00">22:00</option>
+<option value="22:15">22:15</option>
+<option value="22:30">22:30</option>
+<option value="22:45">22:45</option>
+<option value="23:00">23:00</option>
+<option value="23:15">23:15</option>
+<option value="23:30">23:30</option>
+<option value="23:45">23:45</option>
+
+  
+</select>
+<select name="Travelling Mode" id = "mode" placeholder = "Travelling Mode">
+  <option value="driving">Travel Mode</option>
+  <option value="driving">Car</option>
+  <option value="walking">Walk</option>
+  <option value="bicycling">Bike</option>
+  <option value="transit">Public Transport</option>
+</select>
+	
+</div>
+
+<table id= "wpscell" width="48.5%" border="3" cellspacing="2" cellpadding="2">
+  <thead>
+    <tr>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+<p id="demo"></p>
+
+	
+</body>
+<script>
+	
+	if (!initMap.didrun)
+	{
+	var locations= [];
+	}
+function initMap(lati,long) {
+	initMap.didrun = true;
+console.log({lat: lati, lng: long})
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 15,
+    center: {lat: lati, lng: long},
+	imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'
+  });
+
+
+
+  var markers = locations.map(function(location, i) {
+    return new google.maps.Marker({
+      position: location,
+      label: labels[i % labels.length]
+    });
+  });
+
+  // Add a marker clusterer to manage the markers.
+  var markerCluster = new MarkerClusterer(map, markers,
+      {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+	locations.push({lat: lati, lng: long});
+	console.log(locations);
+	
+
+
+}
+	
+	var i = 1
+	var lati = 0;
+	var long = 0;
+	var cords = [];
+	var names = [];
+	var identifier = "pac-input";
+	
+	
+	
+	//setup before functions
+let typingTimer;                //timer identifier
+let doneTypingInterval = 500;  //time in ms (5 seconds)
+let myInput = document.getElementById(identifier);
+
+//on keyup, start the countdown
+myInput.addEventListener('keyup', () => {
+    clearTimeout(typingTimer);
+    if (myInput.value) {
+        typingTimer = setTimeout(doneTyping, doneTypingInterval);
+    }
+});
+
+//user is "finished typing," do something
+function doneTyping () {
+    placeMarkers(i, identifier)
+}
+	
+	
+	
+	
+	var userinputcount = 0
+	function increaseTable()
+	{
+	placeMarkers(i, identifier)
+	var waypointTable = document.getElementById("wpscell");
+	var userinput = document.getElementById("pac-input").value;
+	userinputcount = userinputcount+1
+	var row = waypointTable.insertRow(-1);
+	var cell2 = row.insertCell(0);
+	cell2.innerHTML = userinput;
+	document.getElementById('pac-input').value = []
+
+		
+	}
+
+	function placeMarkers(i, identifier)
+	{
+		names.push(document.getElementById(identifier).value);
+		console.log(names);
+		var x = document.getElementById(identifier).value +'';
+		var address = x.split(' ').join('+');
+		var url1 = 'https://maps.googleapis.com/maps/api/geocode/json?address=';
+		var url2 = address;
+		var url3 = '&key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ';
+		var url12 = url1.concat(url2);
+		var res = url12.concat(url3);
+
+		$.getJSON(res, function (cords) {
+		var lati = cords.results[0].geometry.location.lat;
+		var long = cords.results[0].geometry.location.lng;	
+		initMap(lati,long);
+		});
+//    	var lat = response.results[0].geometry.location.lat;
+//    	var lng = response.results[0].geometry.location.lat;
+	}
+	
+	
+	
+	
+	
+	
+	
+
+
+function process()
+	{
+
+	var tdCollection = $("table").find("td");
+	var names = [];
+	$.each(tdCollection, function(key, el){
+		 names.push($(el).text());
+	});
+	console.log(names);
+
+	var orig= document.getElementById('depart').value;
+	var destin= document.getElementById('dest').value;
+	var time= document.getElementById('timebutton').value;
+	var travel= document.getElementById('mode').value;
+	console.log(travel)
+	console.log(time)
+
+		$.ajax({
+			data: {"Waypoints":names,
+				   "depart_time": time,
+				   "mode": travel,
+				   "origins": orig,
+				   "destinations": destin},
+			type: 'POST',
+			url: '/getjson',
+			success: function() {
+                   location.replace("/results");
+			}
+		})
+
+	}
+
+	
+	
+
+function showbar() {
+	document.getElementById("textbanner").style.marginTop="3.2%"
+	
+}
+	
+function hidebar() {
+	document.getElementById("textbanner").style.marginTop="0%"
+}
+
+function openmenu(){
+	
+	document.getElementById("sidebar").style.width="200px"
+	document.getElementById("sidebarcontent").style.display="block"
+	
+}
+	
+function closemenu(){
+	
+	document.getElementById("sidebar").style.width="0px"
+	document.getElementById("sidebarcontent").style.display="none"
+}
+
+function showwaitpage(){
+	
+	document.getElementById("waitshadow").style.opacity="0.8"
+	document.getElementById("waitshadow").style.zIndex="300"
+	document.getElementById("waitmesssage").style.display="block"
+	
+	process(names)
+}
+	
+
+	
+
+
+
+</script>
+
+<script>
+	
+$.getScript('https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&libraries=places&callback=initAutocomplete', function()
+{
+	var autocomplete2 = new google.maps.places.SearchBox(document.getElementById('dest'))
+	autocomplete2.id = 'dest'
+	var autocomplete3 = new google.maps.places.SearchBox(document.getElementById('depart'))
+	autocomplete3.id = 'depart'
+	initAutocomplete()
+});
+	
+
+	
+</script>
+	 
+
+
+
+</html>

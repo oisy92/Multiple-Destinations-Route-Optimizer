@@ -1,0 +1,520 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Smartphones (portrait and landscape) ----------- */
+
+
+
+header {
+	height: 100vh;
+	width: 100vh;
+}
+
+
+body{
+background-image: url(background.jpeg);
+background-repeat: repeat;
+background-color: black;
+
+opacity: 1;
+z-index:1;
+
+}
+
+#shadow{
+background-color: black;
+opacity: 0.8;
+margin: -100px -100px;
+width: 4000px;
+height: 4000px;
+position: fixed;
+z-index:0.5;
+
+
+}
+
+#logobanner{
+	list-style-type: none;	
+	background-color: black;
+	position: fixed;
+	opacity: 1;
+	margin: 0px 317px 0px 317px;
+	width: 953px;
+	height: 60px;
+	z-index:20;
+	
+}
+
+#textbanner{
+	list-style-type: none;	
+	background-color: black;
+	position: fixed;
+	opacity: 1;
+	margin: 0px 317px 0px 317px;
+	padding-top: 30px;
+	width: 953px;
+	
+	z-index:19;
+	display: block;
+	transition: 1s;
+}
+
+
+
+#textbanner a{
+		font-family: impact;
+		font-size: 30px;
+		padding: 0px 100px;
+		color: aliceblue;
+		text-decoration: none;
+		text-align: center;
+}
+
+
+
+
+#home{
+	float: center;
+	margin: 0px 115px
+	
+
+}
+
+#message{
+	float: center;
+	margin: 0px 135px;
+
+}
+
+#dollar{
+	float: center;
+	margin: 0px 135px;
+
+}
+
+#specs{
+	list-style-type: none;	
+	position: absolute;
+	margin: 50px 317px;
+	display: inline-block;
+	width: 953px;
+	font-family: impact;
+	font-size: 30px;
+	
+	z-index:4;
+	color: #FBAB00;
+	list-style: circle;
+	text-align: center;
+	text-shadow: 10px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+#specs h1{
+	
+	font-size: 100px;
+	text-align: center;
+	text-shadow: 10px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+
+
+#trybutton{
+	
+	position: absolute;
+	font-family: impact;
+	margin: 600px 317px;
+	width: 953px;
+	cursor: pointer;
+	z-index: 4;
+	background-color: transparent;
+	display: block;
+	
+
+	
+}
+
+#trybutton a{
+	
+	color: #2f95c7;
+	font-family: impact;
+	font-size: 100px;
+	z-index: 2;
+	text-decoration: none;
+	opacity: 1;
+	text-align: center;
+	
+}
+
+#map {
+    height: 350px;
+    width: 953px;
+    min-width: width;
+    max-width: width;
+    min-height: height;
+    max-height: height;
+    margin: 95px 317px;
+    position: absolute;
+    z-index: 5;
+
+ 
+ 
+}
+
+#pac-input{
+	
+	margin: 590px 317px;
+	width : 853px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	color:#FBAB00;
+	background-color:#6D6D6D;
+	opacity: 0.8;
+	border: 2px solid black;
+	font-family: impact;
+	font-size: 20px;
+	
+	z-index:9;
+	position: absolute;
+	float: center;
+	cursor: cursor;
+}
+
+
+button{
+	margin: 590px 1170px;
+	width : 100px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	color:#FBAB00;
+	background-color:#6D6D6D;
+	opacity: 0.8;
+	border: 2px solid black;
+	font-family: impact;
+	font-size: 20px;
+	z-index:9;
+	position: absolute;
+	
+	float: center;
+	cursor: pointer;
+}
+
+
+
+#buttonsubmit {
+	margin: 650px 317px;
+	width : 953px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	color:#FBAB00;
+	background-color:#6D6D6D;
+	opacity: 0.8;
+	border: 2px solid black;
+	font-family: impact;
+	font-size: 30px;
+	
+	z-index:9;
+	position: absolute;
+
+	float: center;
+	cursor: pointer;
+	
+}
+
+
+#mode{
+	margin: 530px 0px 0px 793px;
+	width : 476px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	color:#FBAB00;
+	background-color:#6D6D6D;
+	opacity: 0.8;
+	border: 2px solid black;
+	font-family: impact;
+	font-size: 20px;
+	
+	z-index:9;
+	position: absolute;
+	float: center;
+	cursor: pointer;
+	
+}
+
+#timebutton {
+	
+	margin: 530px 0px 0px 317px;
+	width : 476px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	color:#FBAB00;
+	background-color:#6D6D6D;
+	opacity: 0.8;
+	border: 2px solid black;
+	font-family: impact;
+	font-size: 20px;
+	z-index:9;
+	position: absolute;
+	float: center;
+	cursor: pointer;
+	
+}
+
+#depart{
+	margin: 470px 0px 0px 317px;
+	width : 476px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	color:#FBAB00;
+	background-color:#6D6D6D;
+	opacity: 0.8;
+	border: 2px solid black;
+	font-family: impact;
+	font-size: 20px;
+	z-index:9;
+	position: absolute;
+	float: center;
+	cursor: cursor;
+}
+
+#dest{
+	margin: 470px 0px 0px 793px;
+	width : 476px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	color: #FBAB00;
+	background-color:#6D6D6D;
+	opacity: 0.8;
+	border: 2px solid black;
+	font-family: impact;
+	font-size: 20px;
+	z-index:9;
+	position: absolute;
+	float: center;
+	cursor: cursor;
+}
+
+#wpscell{
+	margin: 710px 317px;
+	width : 953px;
+	min-width: width;
+	max-width: width;
+	height : 55px;
+	min-height: height;
+	max-height: height;
+	z-index:40;
+	position: fixed;
+	opacity: 0.8;
+	font-family: impact;
+	text-align: center;
+	position: absolute;
+}
+
+
+#wpscell th{
+	
+	color:#2f95c7;
+	background-color: #6D6D6D;
+	font-size: 20px;
+}
+
+#wpscell td{
+	
+	color:#FBAB00;
+	background-color: #6D6D6D;
+}
+
+
+/*
+inputtable{
+	margin: 400px 10px;
+	
+	
+}
+*/
+
+#results_body{
+	font-family: impact;
+	font-size: 20px;
+	z-index:200;
+	color: #95C9F4;
+	position: fixed;
+}
+
+
+
+#results_header {
+	margin: 100px 317px;
+	width: 953px;
+	max-width: width;
+	min-width: width;
+	font-family: impact;
+	font-size: 20px;
+	position: absolute;
+	z-index:100;
+	color: #FBAB00;
+	float: center;
+	text-align: center;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color:#FBAB00;
+    opacity: 1; /* Firefox */
+	text-align: center;
+}
+select{
+	text-align: center;
+	text-indent: 35px;
+}
+
+
+#resultsmap {
+	z-index: 150;
+	margin: 240px 317px;
+	position: absolute;
+	opacity: 1;
+	
+}
+
+#waitshadow{
+	
+	background-color: black;
+	opacity: 0;
+	width: 100%;
+	height:100%;
+	display: block;
+	transition: 1s;
+	position: fixed;
+	z-index: 0;
+}
+
+#waitmesssage{
+	font-family: impact;
+	color: aliceblue;
+	font-size: 50px;
+	opacity: 1;
+	margin: 300px 0px 0px 500px;
+	position: fixed;
+	display: block;
+	z-index: 500;
+	display: none;
+	text-align: center;
+}
+
+#resultstable {
+	opacity: 0.8;
+	font-family: impact;
+	margin: 745px 317px;
+	width:953px;
+	z-index: 1;
+	text-align: center;
+	position: absolute;
+	
+}
+
+#resultstable th{
+	
+	color:#2f95c7;
+	background-color: #6D6D6D;
+	font-size: 20px;
+}
+
+#resultstable td{
+	
+	color:#FBAB00;
+	background-color: #6D6D6D;
+}
+
+#routetable {
+	opacity: 0.8;
+	font-family: impact;
+	margin: 812px 317px;
+	width: 953px;
+	z-index: 1;
+	text-align: center;
+	position: absolute;
+	
+}
+
+#routetable th{
+	
+	color:#2f95c7;
+	background-color: #6D6D6D;
+	font-size: 20px;
+}
+
+#routetable td{
+	
+	color:#FBAB00;
+	background-color: #6D6D6D;
+}
+
+
+
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+    width: 100%; /* Full width */
+    padding: 12px; /* Some padding */  
+    border: 1px solid #ccc; /* Gray border */
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical; /* Allow the user to vertically resize the textarea (not horizontally) */
+	font-family: impact;
+	font-size: 20px;
+	color: #FBAB00;
+	opacity: 1;
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+    color: white;
+	width: 100%;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	font-family: impact;
+	font-size: 20px;
+	background-color: #2f95c7;
+	color:#FBAB00;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+    background-color: #2f95c7;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+	margin: 10% 0% 5% 20%;
+    border-radius: 5px;
+    background-color: #6D6D6D;
+	opacity: 1;
+    padding: 20px;
+	z-index: 1000;
+	position: fixed;
+}
+

@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Route Optimizer</title>
+<link href="{{ url_for('static', filename='Style.css')}}" rel="stylesheet" type="text/css">
+	
+	
+	
+<style type="text/css">
+@import url("../static/Style.css");
+
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
+<script src={{ url_for('static', filename='jquery-3.3.1.js')}}></script>
+<script type="text/javascript" src={{ url_for('static', filename='maps.js')}}></script>
+	
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	
+
+<body>
+	
+<a href = "www.oyahya.com"> <img id='pic-email' src="world-wide-web-globe_318-39772.jpg" width="30" alt=""/></a>
+<a href = "https://www.youtube.com/channel/UCRoW8781iQ-w6-EILCAmNxw"><img id = 'pic-youtube' src="580b57fcd9996e24bc43c545.png" width="30" alt=""/></a>
+<a href = "https://www.linkedin.com/in/oisy92/"><img id = 'pic-linkedin' src="linkedin-logo.png" width="30" alt=""/></a>
+<a href = "https://github.com/oisy92"><img id = 'pic-github' src="github-153-675523.png" width="30" alt=""/></a>
+<a href = "https://mypo-216615.appspot.com/"><img id = 'pic-software' src="Logosmall.png" width="38" alt=""/></a>
+<div id='main'>
+  <h2>Osama Yahya</h2>
+  <p>Mobile: +61 405 023 161 <br> Email: oisy92@gmail.com <br> Website: www.oyahya.com <br> Brisbane, Australia</</p>
+</div>
+<style>
+	#main{
+		margin:120px 468px;
+		width: 650px;
+		height: 200px;
+		border: 10px solid black;
+		background:white;
+		position: fixed;
+		z-index: 3000;
+	}
+		
+	#main h1{
+		margin-left: 135 468px;
+		text-align: center;
+		font-size: 30px;
+		font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		color: black;
+		font-style: italic;
+	}
+	
+	#main h2{
+		
+		text-align: center;
+		font-size: 40px;
+		line-height: 5px;
+		font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		color: black;
+		
+	}
+	
+	#main p{
+		
+		text-align: center;
+		font-size: 15px;
+		line-height: 20px;
+		font-family: Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+		color: black;
+		
+	}
+	
+	#pic-email{
+		margin-top: 167px;
+		margin-left: -250px;
+		position: absolute;
+		
+	}
+	
+	#pic-youtube{
+		margin-top: 175px;
+		margin-left: -120px;
+		position: absolute;
+	}
+	
+	#pic-linkedin{
+		margin-top: 167px;
+		margin-left: 10px;	
+		position: absolute;
+	}
+	
+	#pic-github{
+		margin-top: 167px;
+		margin-left: 140px;
+		position: absolute;
+				
+	}
+	
+	#pic-software{
+		margin-top: 161px;
+		margin-left: 270px;
+		position: absolute;
+				
+	}
+	
+</style>
+
+	
+<div id="shadow"></div>
+	
+<div id="logobanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<img  id= "home" src="{{ url_for('static', filename='Asset 5.png')}}" width="3.5%">
+	<img  id= "message" src="{{ url_for('static', filename='Asset 6.png')}}" width="3.5%">
+	<img  id= "dollar" src="{{ url_for('static', filename='Asset 8.png')}}" width="3%">
+		</li></div>
+<div id="textbanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<a href="/path">Home</a>
+	<a href = "/contact">Contact</a>
+	<a href = "http://oyahya.com/">Portfolio</a>
+		</li></div>
+	
+	
+
+	
+	
+<script> 
+	
+	function showbar() {
+	document.getElementById("textbanner").style.marginTop="3.2%"
+	
+}
+	
+function hidebar() {
+	document.getElementById("textbanner").style.marginTop="0%"
+}
+	
+	
+	</script>
+	
+	
+	
+	
+	
+</body>
+</html>

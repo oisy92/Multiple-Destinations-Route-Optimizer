@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Results</title>
+<link href="{{ url_for('static', filename='Style.css')}}" rel="stylesheet" type="text/css">
+<style type="text/css">
+@import url("../static/Style.css");
+</style>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<body>
+
+	
+
+<table id="resultstable" border="3" cellspacing="2" cellpadding="2">
+  <tbody>
+    <tr>
+      <th width="10%" scope="col">&nbsp;Start Point</th>
+      <th width="10%" scope="col">&nbsp;End Point</th>
+	  <th width="5%" scope="col">&nbsp;Trip Duration</th>
+	 <th  width="5%" scope="col">&nbsp;Mode</th>
+    </tr>
+    <tr>
+      <td>&nbsp;{{startP}}</td>
+      <td>&nbsp;{{endP}}</td>
+	  <td>&nbsp;{{best_time}}</td>
+      <td>&nbsp;{{mode}}</td>
+    </tr>
+
+  </tbody>
+</table>
+	
+	
+
+
+<table id= "routetable" border="3" cellspacing="2" cellpadding="2">
+  <thead>
+    <tr>
+      <th>Stop #</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<div id="shadow"></div>
+	
+<div id="logobanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<img  id= "home" src="{{ url_for('static', filename='Asset 5.png')}}" width="3.5%">
+	<img  id= "message" src="{{ url_for('static', filename='Asset 6.png')}}" width="3.5%">
+	<img  id= "dollar" src="{{ url_for('static', filename='Asset 8.png')}}" width="3%">
+<!--
+	<img  id= "home" src="Asset 5.png" width="2%">
+	<img  id= "message" src='Asset 6.png' width="2%">
+	<img  id= "dollar" src='Asset 8.png' width="2%">
+-->
+		</li></div>
+	
+<div id="textbanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<a href="/path">Home</a>
+	<a href = "/contact">Contact</a>
+	<a href = "http://oyahya.com/">Portfolio</a>
+		</li></div>
+
+<div id = "results_header">
+	<h1>Thank you for using Route Optimizer<br>Your results are displayed below</h1>
+</div>
+
+<!--
+<div id= "results_body">
+<p>Departure: {{startP}}</p><br>
+<p>Destination: {{endP}}</p><br>
+<p>Total Trip Duration: {{best_time}}</p><br>
+<p>Mode: {{mode}}</p><br>
+<p>Route: {{best_route}}</p><br>
+	
+</div>
+-->
+
+<div id="finalmap">
+
+	
+<iframe
+  id = "resultsmap" name="DonationCampaign" style="width:953px;height:500px;" scrolling="auto" align="center" position="absolute"
+  src= "{{ url }}"
+		allowfullscreen>
+	
+	</iframe>
+
+  
+</div>
+	
+	<script src="../static/maps.js"></script>
+<script type="text/javascript" src={{ url_for('static', filename='maps.js')}}></script>
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&callback=initMap">
+	
+</script>
+<script>
+	
+	CreateTable()
+	
+function showbar() {
+	document.getElementById("textbanner").style.marginTop="3.2%"
+	
+}
+	
+function hidebar() {
+	document.getElementById("textbanner").style.marginTop="0%"
+}
+
+function openmenu(){
+	
+	document.getElementById("sidebar").style.width="200px"
+	document.getElementById("sidebarcontent").style.display="block"
+	
+}
+	
+function closemenu(){
+	
+	document.getElementById("sidebar").style.width="0px"
+	document.getElementById("sidebarcontent").style.display="none"
+}
+
+function CreateTable() {
+var routeArray = {{best_routeFINAL|tojson }};
+var resultsTable = document.getElementById("routetable")
+var count = 0;
+var cellpos = 0;
+routeArray.forEach(function(element) {
+	count = count + 1;
+	var row = resultsTable.insertRow(-1);
+	var cell1 = row.insertCell(0);
+	var cell2 = row.insertCell(1);
+	cell1.innerHTML = count;
+	cell2.innerHTML = element;
+	cellpos = cell1.getBoundingClientRect();
+	console.log(cellpos.top);
+});
+	var margintopp = cellpos.top + (routeArray.length * cellpos.height);
+	console.log(count)
+	console.log(routeArray.length)
+	console.log(margintopp)
+//	document.getElementById('resultsmap').style.marginTop = margintopp+"px";
+
+
+}
+
+
+
+	
+
+	
+	
+ </script>
+
+</body>
+</html>

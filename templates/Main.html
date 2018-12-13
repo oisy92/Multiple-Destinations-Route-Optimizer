@@ -1,0 +1,80 @@
+<!doctype html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&libraries=places&callback=initAutocomplete"></script>
+<script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&libraries=places"></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&callback=initMap">
+</script>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MAPOPT</title>
+<link href="{{ url_for('static', filename='Style.css')}}" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+@import url("../static/Style.css");
+</style>
+</head>
+
+<body>
+	<div id="shadow">#</div>
+	
+<div id="logobanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<img  id= "home" src="{{ url_for('static', filename='Asset 5.png')}}" width="3.5%">
+	<img  id= "message" src="{{ url_for('static', filename='Asset 6.png')}}" width="3.5%">
+	<img  id= "dollar" src="{{ url_for('static', filename='Asset 8.png')}}" width="3%">
+<!--
+	<img  id= "home" src='Asset 5.png' width="2%">
+	<img  id= "message" src='Asset 6.png'width="2%">
+	<img  id= "dollar" src='Asset 8.png' width="2%">
+-->
+		</li></div>
+	
+<div id="textbanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<a href="/path">Home</a>
+	<a href = "/contact">Contact</a>
+	<a href = "http://oyahya.com/">Portfolio</a>
+		</li></div>
+	
+<div id="specs">
+	<ol>
+	<p><h1>Multiple Stops Route Optimizer</h1></p>
+	<p><h2>Real-Time & Predicted Traffic Conditions</h2></p>
+	<p><h2>Various Travelling Modes</h2></p>
+	<p><h2>User-Friendly Panel</h2></p>
+	</ol>
+	
+	</div>
+
+<div id="trybutton">
+	<a href="/GUI"><p>TRY BETA VERSION NOW!</p></a>
+	</div>
+
+</body>
+
+
+<script>
+
+function showbar() {
+	document.getElementById("textbanner").style.marginTop="3.2%"
+	
+}
+	
+function hidebar() {
+	document.getElementById("textbanner").style.marginTop="0%"
+}
+	
+function openmenu(){
+	
+	document.getElementById("sidebar").style.width="200px"
+	document.getElementById("sidebarcontent").style.display="block"
+	
+}
+	
+function closemenu(){
+	
+	document.getElementById("sidebar").style.width="0px"
+	document.getElementById("sidebarcontent").style.display="none"
+}
+
+</script>
+</html>
