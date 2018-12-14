@@ -6,24 +6,15 @@ from itertools import chain, combinations, permutations
 import time
 from tstr2sec import fun_tstr2sec
 
-
-
+#Initialize Time
 start_time = time.time()
 
-
-# global best_route
-# global best_time
-
-# origins = '15 Alice St Kedron QLD'
-# destinations = '15 Alice St Kedron QLD'
-# waypoints = '17 Munro St, AUCHENFLOWER QLD-5 Raymore Ct, CARINDALE QLD-111 Wellington Rd, EAST BRISBANE QLD'
-# mode = 'Driving'
-# depart_time = '2018-08-31 16:30'
-
-
+#Main Function
 def mainfun(origins, destinations, waypoints, mode, depart_time):
+	#Setting up Google API request
 	endpoint = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
-	api_key = 'AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ'
+	api_key = "INSERT YOUR API KEY"
+	#Converting user input to readable format by the software.
 	currentdate = datetime.datetime.today().strftime('%Y-%m-%d')
 	if str(depart_time) == "now":
 		timestamp = time.time()
@@ -38,32 +29,30 @@ def mainfun(origins, destinations, waypoints, mode, depart_time):
 	waypoints_names = waypoints.replace(" ","+")
 	waypoints_names = waypoints_names.split('-')
 	traffic_mode = 'pessimistic'
-
-	
-
+	#Creating dictionaries to host user waypoints for the permutations process
 	way_num = len(waypoints_names)
 	requested_possible_combs = []
-	total_time = 0
-	itcount = 0
 	calculated = {}
 	permutation = []
+	#Defining initial variables
+	#a= first stop, b = second stop, total_time= time from stop a to stop b, itcount = premuation calculation count, first = boolean value to check if first premuation count.
 	a = 0
 	b = 0
+	total_time = 0
+	itcount = 0
 	first = 'true'
 	orig_destinations = destinations
 	orig_origin = origins
+	#Creating list of all possible routes between all user waypoints. The list contains as many rows as possible routes.
 	permutation_raw = list(permutations(waypoints_names, way_num))
-
-
+	#Because the route will always start from the origin and ends at the destiniation, the below line modifies the raw permutation list to add origin stop at the beginnning of the route, and destiniation at the end of the route
 	for n in permutation_raw:
 		n = list(n)
 		n.append(destinations)
 		n.insert(0,origins)
 		permutation.append(n)
-
-	# print(len(permutation))
+	#Optimization/Salesman problem algorithm start here. In short, the software sends API request to Google Maps requesting travel time between point A to point B. Then, it recives Json structure containing travelling time between point A to point B. After that, the software stores the received data in a list, and compares them with the next travelling time taken to travel between point A and C, if it's less than A and B; it nominates it as better route.
 	for route in permutation:
-
 		num_routes = len(permutation)
 		len_route = len(route)
 		duration = 0
@@ -72,66 +61,32 @@ def mainfun(origins, destinations, waypoints, mode, depart_time):
 		prog = int(itcount)/(num_routes)*100	
 		if first == 'false':
 			itcount += 1
-			# os.system('cls')
-
-		
 		while (count < len_route-1):
-			# print(calculated.items())
 			a = count
 			b = a +1
 			count += 1	
 			check = str(route[a]+route[b]) in calculated.keys()
 			if str(check) == 'True':
 				duration = calculated.get(route[a]+route[b])
-				# print(CGREEN2+'Saved route', route[a],route[b],(datetime.timedelta(seconds=int(duration))))
 				total_time = int(duration) + int(total_time)
-				# sleep(1)
-				# print (total_time)
 			elif str(check) == 'False':
-				# print(CRED+'New route')
 				calculated[str(route[a]+route[b])] = duration
-				# print(calculated)
 				nav_request = 'origins={}&destinations={}&departure_time={}&mode={}&traffic_model={}&key={}'.format(route[a],route[b],departure_time,mode,traffic_mode,api_key)
-				# print(nav_request)
-				# print ("Origin : ", route[a], "Destination : ", route[b])
 				request = endpoint + nav_request
-				#Sends the request and reads the response.
 				response = urllib.urlopen(request).read()
-				#Loads response as JSON
 				directions = json.loads(response)
-				# print(directions)
 				trip_time = (directions["rows"][0]["elements"][0]["duration"]["text"])
 				duration = fun_tstr2sec(trip_time)
-
-				
 				calculated[str(route[a]+route[b])] = duration
 				calculated.copy().items()
-
 				total_time = int(duration) + int(total_time)
-				
-				# sleep(1)
-				# print (total_time)
-
 		if first == 'true':
 			best_time = total_time
 			best_route = route
 			calculated[str(route[a]+route[b])] = duration
-			# os.system('cls')
-			# print (CYELLOW2 + 'Optimized Route Found: ' + CGREEN2 + str(route).replace("+"," ") + CEND)
-			# print (CYELLOW2 + 'Total trip duration of:' + CRED2 + str(datetime.timedelta(seconds=best_time)) + CEND + CYELLOW2 + " Progress" + CRED2 + " %d" % (prog) + "%" + CEND)
-			# print (CYELLOW2 + "Progress" + CRED2 + " %d" % (prog) + "%" + CEND)
 			first = 'false'
-
 		if first == 'false' and total_time < best_time:
 			best_time = total_time
 			best_route = str(route).replace("+"," ")
-			# os.system('cls')
-			# print (CYELLOW2 + 'Optimized Route Found: ' + CGREEN2 + str(route).replace("+"," ") + CEND)
-			# print (CYELLOW2 + 'Total trip duration of: ' + CRED2 + str(datetime.timedelta(seconds=best_time)) + CEND)
-			# print (CYELLOW2 + "Progress: " + CRED2 + " %d" % (prog) + "%" + CEND)
-	# best_route = best_route.replace("['"," ")
-	# best_route = best_route.replace("']"," ")
-	# best_route = best_route.replace("', u'","|")
-	# best_route = "|".join(best_route)
 	best_time = str(datetime.timedelta(seconds=best_time))
 	return best_route, best_time
