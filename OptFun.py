@@ -40,7 +40,7 @@ def mainfun(origins, destinations, waypoints, mode, depart_time):
 	b = 0
 	total_time = 0
 	itcount = 0
-	first = 'true'
+	first = True
 	orig_destinations = destinations
 	orig_origin = origins
 	#Creating list of all possible routes between all user waypoints. The list contains as many rows as possible routes.
@@ -59,17 +59,17 @@ def mainfun(origins, destinations, waypoints, mode, depart_time):
 		total_time = 0
 		count = 0
 		prog = int(itcount)/(num_routes)*100	
-		if first == 'false':
+		if first == False:
 			itcount += 1
 		while (count < len_route-1):
 			a = count
 			b = a +1
 			count += 1	
 			check = str(route[a]+route[b]) in calculated.keys()
-			if str(check) == 'True':
+			if str(check) == True:
 				duration = calculated.get(route[a]+route[b])
 				total_time = int(duration) + int(total_time)
-			elif str(check) == 'False':
+			elif str(check) == False:
 				calculated[str(route[a]+route[b])] = duration
 				nav_request = 'origins={}&destinations={}&departure_time={}&mode={}&traffic_model={}&key={}'.format(route[a],route[b],departure_time,mode,traffic_mode,api_key)
 				request = endpoint + nav_request
@@ -80,12 +80,12 @@ def mainfun(origins, destinations, waypoints, mode, depart_time):
 				calculated[str(route[a]+route[b])] = duration
 				calculated.copy().items()
 				total_time = int(duration) + int(total_time)
-		if first == 'true':
+		if first == True:
 			best_time = total_time
 			best_route = route
 			calculated[str(route[a]+route[b])] = duration
-			first = 'false'
-		if first == 'false' and total_time < best_time:
+			first = False
+		if first == False and total_time < best_time:
 			best_time = total_time
 			best_route = str(route).replace("+"," ")
 	best_time = str(datetime.timedelta(seconds=best_time))
