@@ -1,0 +1,77 @@
+<!doctype html>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&libraries=places&callback=initAutocomplete"></script>
+<script  type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&libraries=places"></script>
+<script async defer
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&callback=initMap">
+</script>
+<html>
+<head>
+<meta charset="utf-8">
+<title>MAPOPT</title>
+<link href="{{ url_for('static', filename='Style.css')}}" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style type="text/css">
+@import url("../static/Style.css");
+</style>
+</head>
+
+<body>
+	<div id="shadow">#</div>
+	
+<div id="logobanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<img  id= "home" src="{{ url_for('static', filename='Asset 5.png')}}" width="3.5%">
+	<img  id= "message" src="{{ url_for('static', filename='Asset 6.png')}}" width="3.5%">
+	<img  id= "dollar" src="{{ url_for('static', filename='Asset 8.png')}}" width="3%">
+		</li></div>
+	
+<div id="textbanner" onMouseOver="showbar()" onMouseOut="hidebar()"><li>
+	<a href="/path">Home</a>
+	<a href = "/contact">Contact</a>
+	<a href = "http://oyahya.com/">Portfolio</a>
+		</li></div>
+<div id="tutorialtext">
+<h1>WATCH 2 MIN TUTORIAL</h1>
+	
+	</div>
+<iframe class = "youtube" height="315" src="https://www.youtube.com/embed/LnNyRbgWXZM" frameborder="0" width= "720" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	
+<div id="errorspecs">
+	<ol>
+	<p><h1>Something is wrong :(</h1></p>
+	<p><h2> - Select addresses from the dropdown menu auto-completed addresses, rather than typing whole addresses manually.</h2></p>
+	<p><h2> - Ensure the departure time is in the future or present according to the local time of the departure address.</h2></p>
+	</ol>
+	
+	</div>
+
+<div id="trybutton">
+	<a href="/GUI"><p>TRY AGAIN!</p></a>
+	</div>
+
+<script>
+
+function showbar() {
+	document.getElementById("textbanner").style.marginTop="3.2%"
+	
+}
+	
+function hidebar() {
+	document.getElementById("textbanner").style.marginTop="0%"
+}
+	
+function openmenu(){
+	
+	document.getElementById("sidebar").style.width="200px"
+	document.getElementById("sidebarcontent").style.display="block"
+	
+}
+	
+function closemenu(){
+	
+	document.getElementById("sidebar").style.width="0px"
+	document.getElementById("sidebarcontent").style.display="none"
+}
+
+</script>
+
+</body>

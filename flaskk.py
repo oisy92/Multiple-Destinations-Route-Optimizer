@@ -29,6 +29,10 @@ def home():
 @app.route("/contact")
 def contactfun():
 	return render_template('Contact.html')
+	
+@app.route("/error")
+def errorfun():
+	return render_template('Error.html')
 
 @app.route('/getjson', methods=['POST'])
 def getjsonfun():

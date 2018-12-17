@@ -119,6 +119,30 @@ z-index:0.5;
 
 }
 
+#errorspecs{
+	list-style-type: none;	
+	position: absolute;
+	display: inline-block;
+	width: 653px;
+	font-family: impact;
+	font-size: 15px;
+    margin: 100px 500px;
+	z-index:4;
+	color: #FBAB00;
+	list-style: circle;
+	text-align: center;
+	text-shadow: 10px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
+#errorspecs h1{
+	
+	font-size: 60px;
+	text-align: center;
+	text-shadow: 10px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+
+}
+
 .youtube{
 	margin: 600px 470px;
 	position: absolute;

@@ -315,6 +315,9 @@ function process()
 			url: '/getjson',
 			success: function() {
                    location.replace("/results");
+			},
+			error: function() {
+			location.replace("/error")
 			}
 		})
 
