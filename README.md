@@ -1,4 +1,4 @@
-# Multiple Destiniation Route Optimizer
+# [ARCHIVED] Multiple Destiniation Route Optimizer
 
 This is an impelentation of travelling sales man prbolem integrated with Google Maps, with a web interface that allows planning a journey with a multiple stops.
 Unlike Google Maps, this tool will re-arrange the journey stops to optimizeb the route based on distance and travelling time.
