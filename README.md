@@ -8,6 +8,10 @@ Unlike Google Maps, this tool will re-arrange the journey stops to optimizeb the
 2. Flask Tool
 
 ## How to use
+### Tutorial 1:
+Watch video tutorial:
+https://www.youtube.com/watch?v=LnNyRbgWXZM&t=
+### Tutorial 2:
 1. Go to https://mypo-216615.appspot.com/
 2. Enter the departure stop.
 3. Enter the destiniation stop.
