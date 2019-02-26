@@ -25,20 +25,3 @@ def fun_tstr2sec(time):
 		# print(time)
 		duration = int(time)*60
 		return duration
-
-
-# total_time = int(duration) + int(total_time)
-
-# if first == 'true':
-	# best_time = total_time
-	# best_route = route
-	# calculated[str(route[a]+route[b])] = duration
-	# print (CYELLOW2 + 'Optimized Route Found: ' + CGREEN2 + str(route).replace("+"," ") + CEND)
-	# print (CYELLOW2 + 'Total trip duration of:' + CRED2 + str(datetime.timedelta(seconds=best_time)) + CEND + CYELLOW2 + " Progress" + CRED2 + " %d" % (prog) + "%")
-	# first = 'false'
-
-# if first == 'false' and total_time < best_time:
-	# best_time = total_time
-	# best_route = str(route).replace("+"," ")
-	# print (CYELLOW2 + 'Optimized Route Found: ' + CGREEN2 + str(route).replace("+"," ") + CEND)
-	# print (CYELLOW2 + 'Total trip duration of:' + CRED2 + str(datetime.timedelta(seconds=best_time)) + CEND + CYELLOW2 + " Progress" + CRED2 + " %d" % (prog) + "%")

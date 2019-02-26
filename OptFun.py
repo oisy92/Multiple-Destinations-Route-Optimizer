@@ -13,6 +13,7 @@ start_time = time.time()
 def mainfun(origins, destinations, waypoints, travel_mode, depart_time):
 	#Setting up Google API request
 	endpoint = 'https://maps.googleapis.com/maps/api/distancematrix/json?'
+	api_key = 'INSERT YOUR API'
 	#Converting user input to readable format by the software.
 	currentdate = datetime.datetime.today().strftime('%Y-%m-%d')
 	if depart_time == "now":
