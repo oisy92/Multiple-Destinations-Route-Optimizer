@@ -58,11 +58,6 @@ def getjsonfun():
 	startP = str(startP[0])
 	mode = str(mode[0])
 	waypoints = '-'.join(waypoints)
-	print(startP)
-	print (endP)
-	print (waypoints)
-	print(mode)
-	print(depart_time)
 	best_route, best_time = mainfun(startP, endP, waypoints, mode, depart_time)
 	if isinstance(best_route, (list,)):
 		best_route = str(best_route)
@@ -88,12 +83,9 @@ def resultsfinal():
 	startP = startP.replace(",","+")
 	endP = endP.replace(" ","+")
 	startP = startP.replace(" ","+")
-	print ('AAAAAAAAAAAA')
 	best_routeFORMATED = best_route.replace("+"," ")
 	best_routeFINAL = re.findall("'([^']+)'", best_routeFORMATED)
-	print(best_routeFINAL)
-	print(type(best_routeFINAL))
-	url = "https://www.google.com/maps/embed/v1/directions?key=AIzaSyAqlGwiISp3_DE6vtShdH9VmANV4GuK_hQ&origin="
+	url = "https://www.google.com/maps/embed/v1/directions?key=INSERT YOUR API&origin="
 	url = url+str(startP)+"&destination="+str(endP)+"&waypoints="+str(optimizedrouteFINAL)+"&mode="+str(mode)+"&units=metric&avoid=tolls"
 	startP = startP.replace("+"," ")
 	endP = endP.replace("+"," ")
